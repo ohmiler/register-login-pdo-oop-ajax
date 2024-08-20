@@ -1,15 +1,15 @@
 <?php
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 
 // Retrieve raw POST data
-$input = file_get_contents('php://input');
+$input = file_get_contents("php://input");
 
 // Decode JSON data to PHP associative array
 $data = json_decode($input, true);
 
-include_once '../config/class.php'; // Include the database configuration file
+include_once "../config/class.php";
 
-if (isset($_SERVER['REQUEST_METHOD']) == 'POST') {
+if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
     $name = trim($data['name']);
     $email = trim($data['email']);
     $password = trim($data['password']);
@@ -26,6 +26,5 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST') {
         $web->registerUser($name, $email, $password);
     }
 }
-    
 
 ?>

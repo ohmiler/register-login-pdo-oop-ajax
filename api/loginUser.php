@@ -1,15 +1,15 @@
 <?php
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 
 // Retrieve raw POST data
-$input = file_get_contents('php://input');
+$input = file_get_contents("php://input");
 
 // Decode JSON data to PHP associative array
 $data = json_decode($input, true);
 
-include_once '../config/class.php';
+include_once "../config/class.php";
 
-if (isset($_SERVER['REQUEST_METHOD']) == 'POST') {
+if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
     $email = trim($data['email']);
     $password = trim($data['password']);
 
@@ -25,4 +25,5 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST') {
         $web->loginUser($email, $password);
     }
 }
+
 ?>
